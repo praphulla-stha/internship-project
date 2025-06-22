@@ -25,6 +25,12 @@ jobs:
         run: |
           pip install pipenv
 
+      - name: Debug Python and pipenv versions
+        run: |
+          python --version
+          pipenv --version
+          pipenv --python 3.9
+
       - name: Install dependencies
         run: |
           pipenv install --dev
