@@ -38,7 +38,11 @@ jobs:
       - name: Run tests
         run: |
           cd tests
-          pipenv run pytest test_dummyjson_crud.py -v --html=report.html
+          pipenv run pytest test_dummyjson_crud.py -v --html=report.html --self-contained-html
+
+      - name: Debug generated files
+        run: |
+          ls -l tests/
 
       - name: Upload test report
         uses: actions/upload-artifact@v4
