@@ -5,11 +5,10 @@ name = "pypi"
 
 [packages]
 requests = "*"
-pytest = "*"
-python-dotenv = "*"
-pytest-html = "==4.1.1"
 
 [dev-packages]
+pytest = "==8.4.1"
+allure-pytest = "==2.14.3"
 
 [requires]
 python_version = "3.9"

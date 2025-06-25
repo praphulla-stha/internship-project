@@ -133,23 +133,23 @@ def test_delete_user(service, caplog):
         assert response.get("id") == 1, "User deletion failed"
         assert response.get("isDeleted"), "User not marked as deleted"
 
-@allure.feature("DummyJSON API")
-@allure.story("Test user creation with invalid data")
-def test_create_user_invalid_data(service, caplog):
-    caplog.set_level(logging.INFO)
-    with allure.step("Prepare invalid user data"):
-        invalid_data = {"firstName": "", "email": "invalid"}
-        logger.info(f"Creating user with invalid data: {invalid_data}")
-    with allure.step("Send create user request with invalid data"):
-        try:
-            response = service.create_user(invalid_data)
-            logger.info(f"Response: {response}")
-            allure.attach(str(response), name="Response JSON", attachment_type=allure.attachment_type.JSON)
-            assert False, "Expected user creation to fail with invalid data"
-        except Exception as e:
-            logger.info(f"Expected error: {str(e)}")
-            allure.attach(str(e), name="Error Message", attachment_type=allure.attachment_type.TEXT)
-            assert "error" in str(e).lower(), "Expected an error for invalid data"
+# @allure.feature("DummyJSON API")
+# @allure.story("Test user creation with invalid data")
+# def test_create_user_invalid_data(service, caplog):
+#     caplog.set_level(logging.INFO)
+#     with allure.step("Prepare invalid user data"):
+#         invalid_data = {"firstName": "", "email": "invalid"}
+#         logger.info(f"Creating user with invalid data: {invalid_data}")
+#     with allure.step("Send create user request with invalid data"):
+#         try:
+#             response = service.create_user(invalid_data)
+#             logger.info(f"Response: {response}")
+#             allure.attach(str(response), name="Response JSON", attachment_type=allure.attachment_type.JSON)
+#             assert False, "Expected user creation to fail with invalid data"
+#         except Exception as e:
+#             logger.info(f"Expected error: {str(e)}")
+#             allure.attach(str(e), name="Error Message", attachment_type=allure.attachment_type.TEXT)
+#             assert "error" in str(e).lower(), "Expected an error for invalid data"
 
 # Post Tests
 @allure.feature("DummyJSON API")

@@ -25,7 +25,9 @@ jobs:
         run: pip install pipenv
 
       - name: Install dependencies
-        run: pipenv install --dev
+        run: |
+          pipenv sync --dev
+          pipenv run pip list
 
       - name: Install Allure
         run: |

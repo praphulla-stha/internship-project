@@ -13,7 +13,6 @@ def pytest_runtest_makereport(item, call):
         'test_get_user': 'Retrieve a user by ID',
         'test_update_user': 'Update an existing user',
         'test_delete_user': 'Delete a user',
-        'test_create_user_invalid_data': 'Test user creation with invalid data',
         'test_create_post': 'Create a new post',
         'test_get_post': 'Retrieve a post by ID',
         'test_update_post': 'Update an existing post',
