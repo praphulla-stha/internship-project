@@ -52,24 +52,27 @@ jobs:
 
       - name: Generate Allure report
         if: always()
-        run: /usr/local/allure/bin/allure generate ../allure-results -o ../allure-report --clean || echo "Allure report generation failed"
+        run: |
+          /usr/local/allure/bin/allure generate allure-results -o allure-report --clean || echo "Allure report generation failed"
 
       - name: Debug generated files
         if: always()
         run: |
-          ls -la ../allure-results || echo "No allure-results directory"
-          ls -la ../allure-report || echo "No allure-report directory"
+          ls -la allure-results || echo "No allure-results directory"
+          ls -la allure-report || echo "No allure-report directory"
 
       - name: Upload Allure results
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: allure-results
-          path: ../allure-results/
+          path: allure-results/
+          if-no-files-found: warn
 
       - name: Upload Allure report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: allure-report
-          path: ../allure-report/
+          path: allure-report/
+          if-no-files-found: warn
