@@ -38,17 +38,27 @@ jobs:
           sudo mv allure-2.24.0 /usr/local/allure
           echo "export PATH=/usr/local/allure/bin:$PATH" >> $GITHUB_ENV
 
+      - name: Debug test files
+        run: |
+          ls -la tests/
+          ls -la tests/data/
+          pwd
+
       - name: Run tests
         run: |
           cd tests
-          pipenv run pytest test_dummyjson_crud.py -v --alluredir=../allure-results --capture=tee-sys
+          pipenv run pytest test_dummyjson_crud.py -v --alluredir=../allure-results --capture=tee-sys || echo "Tests failed, checking allure-results"
+          ls -la ../allure-results || echo "No allure-results directory"
 
       - name: Generate Allure report
         if: always()
-        run: /usr/local/allure/bin/allure generate ../allure-results -o ../allure-report --clean
+        run: /usr/local/allure/bin/allure generate ../allure-results -o ../allure-report --clean || echo "Allure report generation failed"
 
       - name: Debug generated files
-        run: ls -la ../allure-results ../allure-report
+        if: always()
+        run: |
+          ls -la ../allure-results || echo "No allure-results directory"
+          ls -la ../allure-report || echo "No allure-report directory"
 
       - name: Upload Allure results
         if: always()
