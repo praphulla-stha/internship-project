@@ -43,10 +43,13 @@ jobs:
           ls -la tests/
           ls -la tests/data/
           pwd
+          pipenv run python -c "import pytest; print(pytest.__version__)"
+          pipenv run python -c "import allure_pytest; print(allure_pytest.__version__)"
 
       - name: Run tests
         run: |
           cd tests
+          pipenv run pytest test_dummyjson_crud.py -v --collect-only || echo "Test collection failed"
           pipenv run pytest test_dummyjson_crud.py -v --alluredir=../allure-results --capture=tee-sys || echo "Tests failed, checking allure-results"
           ls -la ../allure-results || echo "No allure-results directory"
 
