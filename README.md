@@ -113,4 +113,4 @@ Dependency Issues: Ensure Pipfile dependencies are installed (pipenv install).
 API Changes: Verify endpoint behavior at DummyJSON Docs.
 
 License
-MIT License (or specify your preferred license).
+MIT License (or specify your preferred license)
