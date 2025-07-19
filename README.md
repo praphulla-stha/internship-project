@@ -1,5 +1,5 @@
 DummyJSON API Automation Framework
-A modular, scalable API testing framework for the DummyJSON API, built with Python, requests, and pytest. This framework automates CRUD (Create, Read, Update, Delete) operations for multiple endpoints (/products, /users, /posts, /carts), designed for QA engineers and developers.
+A modular, scalable API testing framework for the DummyJSON API, built with Python, requests, and pytest. This framework automates CRUD (Create, Read, Update, Delete) operations for multiple endpoints (/products, /users, /posts, /carts), designed for QA engineers and software developers.
 Features
 
 Modular Design: Separates services, tests, and utilities for easy maintenance.
@@ -113,4 +113,4 @@ Dependency Issues: Ensure Pipfile dependencies are installed (pipenv install).
 API Changes: Verify endpoint behavior at DummyJSON Docs.
 
 License
-MIT License (or specify your preferred license)
+MIT License (or specify your preferred license).
