@@ -24,21 +24,9 @@ This project is a Python-based API testing framework designed to automate the te
 | Reporting       | Allure Framework   |
 | CI/CD           | GitHub Actions     |
 | Environment Mgmt| python-dotenv, Pipenv |
-| Test Mgmt       | TestRail (externally) |
-| Bug Tracking    | JIRA (externally)   |
+
 
 ---
-
-## 📂 Project Structure
-.
-├── tests/ # Test cases
-├── services/ # API request handling
-├── utils/ # Utility functions
-├── data/ # Test payloads (JSON)
-├── config/ # Environment and setup files
-├── .env # API base URL and secrets
-├── Pipfile # Dependencies
-└── .github/workflows/ # CI pipeline (GitHub Actions)
 
 
 ---
@@ -49,20 +37,27 @@ This project is a Python-based API testing framework designed to automate the te
 ```bash
 git clone https://github.com/praphulla-stha/internship-project.git
 cd api-testing-framework
-
+```
 ### 2. Install dependencies
+```bash
 pip install pipenv
 pipenv install
+```
 
 ### 3. Configure environment variables
+```bash
 Create a .env file and add:
 BASE_URL=https://your.api.endpoint/
-
+```
 ### 4. Run tests
+```bash
 pipenv run pytest --alluredir=allure-results
+```
 
 ### 5. Generate Allure report
+```bash
 allure serve allure-results
+```
 
 🧠 Learning Outcomes
 Hands-on experience with automated testing using Python
