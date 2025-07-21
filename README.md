@@ -59,11 +59,3 @@ pipenv run pytest --alluredir=allure-results
 allure serve allure-results
 ```
 
-🧠 Learning Outcomes
-Hands-on experience with automated testing using Python
-
-CI/CD setup using GitHub Actions
-
-End-to-end API validation with logging and reporting
-
-Working with professional tools like Postman, JIRA, and TestRail
